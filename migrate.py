@@ -756,7 +756,6 @@ def change_interface_name(interface_name, objtype_id):
 
 with connection.cursor() as cursor:
 	
-	global hw_types;
 	# For the HW Type field: use this as the base name for the device type
 
 	cursor.execute("SELECT object_id,string_value FROM AttributeValue WHERE attr_id=10014")
