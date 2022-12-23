@@ -558,7 +558,7 @@ def get_custom_fields(cursor, racktables_object_id, initial_dict=None):
 		if attr_id == 2 or attr_id == 27 or attr_id == 10014:
 			continue
 
-		custom_fields[slugified_attributes[attr_id]] = string_value if string_value else uint_value
+		custom_fields[slugified_attributes[attr_id]] = string_value if string_value else hw_type[uint_value]
 
 	return custom_fields
 
