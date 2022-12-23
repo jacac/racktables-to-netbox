@@ -547,6 +547,7 @@ def device_is_in_cluster(device_id):
 def get_custom_fields(cursor, racktables_object_id, initial_dict=None):
 	
 	global slugified_attributes
+	global hw_types
 	custom_fields = initial_dict if initial_dict else dict()
 
 	cursor.execute("SELECT attr_id,string_value,uint_value FROM AttributeValue WHERE object_id={};".format(racktables_object_id))
@@ -558,7 +559,7 @@ def get_custom_fields(cursor, racktables_object_id, initial_dict=None):
 		if attr_id == 2 or attr_id == 27 or attr_id == 10014:
 			continue
 
-		custom_fields[slugified_attributes[attr_id]] = string_value if string_value else hw_type[uint_value]
+		custom_fields[slugified_attributes[attr_id]] = string_value if string_value else hw_types[uint_value]
 
 	return custom_fields
 
